@@ -458,4 +458,5 @@ async function render() {
 }
 document.getElementById('mobile-toggle').onclick = () => { const nav = $('#site-nav'); nav.classList.toggle('open'); $('#mobile-toggle').setAttribute('aria-expanded', String(nav.classList.contains('open'))); };
 window.addEventListener('hashchange', render);
+window.addEventListener('paperplazo-auth-state', () => connectLiveProducts());
 (async () => { try { if (state.token) { const result = await request('/auth/me'); state.user = result.user; localStorage.setItem('paperplazo_customer_user', JSON.stringify(result.user)); await mergeGuestCart(); } await refreshCart(); } catch (error) { console.warn(error.message); } render(); })();
