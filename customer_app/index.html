@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173c2b">
+  <meta name="description" content="PAPERPLAZO premium paper packaging for retail, gifting and growing brands.">
+  <title>PAPERPLAZO — Packaging, considered</title>
+  <link rel="stylesheet" href="/customer/css/app.css">
+</head>
+<body>
+  <div class="announcement"><span>PACKAGING, CONSIDERED.</span><span>THOUGHTFUL DETAILS · SMALL-BATCH SPIRIT</span></div>
+  <header class="site-header">
+    <a href="#home" class="brand" aria-label="PAPERPLAZO home">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img" aria-label="Premium paper bag logo">
+          <path d="M22 18c0-7 4-12 10-12s10 5 10 12" fill="none" stroke="#173c2b" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M15 22h34l5 30c.8 6-3 11-9 11H19c-6 0-10-5-9-11l5-30z" fill="#e6c99a" stroke="#173c2b" stroke-width="2.6"/>
+          <path d="M23 28c3 5 6 8 9 8 4 0 8-3 12-8" fill="none" stroke="#173c2b" stroke-width="2.6" stroke-linecap="round"/>
+          <circle cx="30" cy="10" r="2.4" fill="#173c2b"/>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <span class="brand-wordmark">PAPER<span>PLAZO</span></span>
+        <small>THOUGHTFUL PAPER PACKAGING</small>
+      </span>
+    </a>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#shop">Shop</a><a href="#custom">Custom packaging</a><a href="#about">Our approach</a><a href="#track">Track order</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions"><a id="account-link" href="#login" aria-label="Account">ACCOUNT</a><a class="bag-button" href="#cart"><span class="bag-button-icon" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" aria-label="Shopping bag icon"><path d="M20 22c0-7 5-12 12-12s12 5 12 12" fill="none" stroke="#173c2b" stroke-width="3" stroke-linecap="round"/><path d="M14 22h36l-4 28c-.8 6-5 10-11 10H29c-6 0-10-4-11-10L14 22z" fill="#efe4d2" stroke="#173c2b" stroke-width="2.5"/><path d="M25 30c2 2.5 4 4 7 4 3 0 5-1.5 7-4" fill="none" stroke="#173c2b" stroke-width="2.5" stroke-linecap="round"/></svg></span>BAG <span id="cart-count">0</span></a></div>
+  </header>
+  <main id="app" aria-live="polite"><div class="page-loader">Loading PAPERPLAZO…</div></main>
+  <footer class="site-footer">
+    <div><a href="#home" class="brand footer-brand">PAPER<span>PLAZO</span><small>THOUGHTFUL PAPER PACKAGING</small></a><p>Thoughtful forms, natural tones and packaging designed to make the handover feel considered.</p></div>
+    <div><h3>EXPLORE</h3><a href="#shop">The collection</a><a href="#about">Our approach</a><a href="#custom">Custom orders</a><a href="#track">Track an order</a></div>
+    <div><h3>START A CONVERSATION</h3><a href="#contact">Contact us</a><a href="#custom">Request a quote</a><p>Prices and production details are confirmed after enquiry.</p></div>
+    <div class="footer-bottom">© PAPERPLAZO <span>PACKAGING, CONSIDERED.</span></div>
+  </footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="/shared/firebase-config.js"></script>
+  <script type="module" src="/customer/js/firebase-client.js"></script>
+  <script type="module" src="/customer/js/app.js"></script>
+</body>
+</html>

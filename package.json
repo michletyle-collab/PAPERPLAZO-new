@@ -1,0 +1,21 @@
+{
+  "name": "new-app",
+  "version": "1.0.0",
+  "description": "PAPERPLAZO is a locally runnable premium paper-packaging commerce project with two deliberately separate front ends:",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "provision-admin": "node scripts/provision-admin.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "firebase": "^13.2.0",
+    "firebase-admin": "^14.5.0"
+  }
+}

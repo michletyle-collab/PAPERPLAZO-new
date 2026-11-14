@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+backend/instance/
+backend/uploads/*
+!backend/uploads/.gitkeep
+*.db
+tests/*.db
+service-account*.json
+firebase-admin-sdk*.json
+*service-account*.json
+.firebase/
