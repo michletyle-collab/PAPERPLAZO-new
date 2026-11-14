@@ -44,7 +44,12 @@ export const initializeFirebase = () => {
   firebaseApp = initializeApp(FIREBASE_CONFIG);
   auth = getAuth(firebaseApp);
   db = getFirestore(firebaseApp);
-  analytics = getAnalytics(firebaseApp);
+  try {
+    analytics = getAnalytics(firebaseApp);
+  } catch (error) {
+    analytics = null;
+    console.warn('PAPERPLAZO Analytics is unavailable in this browser:', error.message);
+  }
   return { app: firebaseApp, auth, db, analytics };
 };
 

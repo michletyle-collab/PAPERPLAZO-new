@@ -1,5 +1,3 @@
-import { productsApi } from './products.js';
-
 const API = '/api';
 const readStorage = (key, fallback) => {
   try {
@@ -28,6 +26,7 @@ const state = {
   productListener: null
 };
 const app = document.getElementById('app');
+let productsApi;
 const $ = (selector, root = document) => root.querySelector(selector);
 const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const money = value => `₹${Number(value || 0).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
@@ -266,21 +265,26 @@ function renderLiveProductSections() {
     bindAddButtons(shopContainer);
   }
 }
-function connectLiveProducts() {
+async function connectLiveProducts() {
   state.productListener?.();
   state.productListener = null;
   const routeName = route().split('?')[0].split('/')[0];
   if (!['home', 'shop'].includes(routeName) || !window.PAPERPLAZO_FIREBASE?.configured) return;
-  state.productListener = productsApi.listenToActiveProducts(snapshot => {
-    state.firestoreProducts = snapshot.map(mapFirestoreProduct);
-    renderLiveProductSections();
-  }, error => {
-    const message = `<p class="error">${escapeHtml(error.message || 'The product catalog could not be loaded.')}</p>`;
-    const featured = $('#featured-products');
-    const shop = $('#shop-products');
-    if (featured) featured.innerHTML = message;
-    if (shop) shop.innerHTML = message;
-  });
+  try {
+    if (!productsApi) ({ productsApi } = await import('./products.js'));
+    state.productListener = productsApi.listenToActiveProducts(snapshot => {
+      state.firestoreProducts = snapshot.map(mapFirestoreProduct);
+      renderLiveProductSections();
+    }, error => {
+      const message = `<p class="error">${escapeHtml(error.message || 'The product catalog could not be loaded.')}</p>`;
+      const featured = $('#featured-products');
+      const shop = $('#shop-products');
+      if (featured) featured.innerHTML = message;
+      if (shop) shop.innerHTML = message;
+    });
+  } catch (error) {
+    console.warn('Live Firebase product updates are unavailable:', error.message);
+  }
 }
 async function refreshCart() {
   if (state.token) state.cart = await request('/cart');
