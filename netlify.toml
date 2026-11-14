@@ -1,2 +1,3 @@
 [build]
-  publish = "customer_app"
+  base = "customer_app"
+  publish = "."
