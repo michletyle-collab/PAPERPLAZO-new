@@ -1,4 +1,4 @@
-import { initializeFirebase, listenAuthState, isFirebaseConfigured } from '/shared/firebase.js';
+import { initializeFirebase, listenAuthState, isFirebaseConfigured } from './firebase.js';
 
 const firebaseState = initializeFirebase();
 if (!firebaseState) {
